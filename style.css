@@ -125,7 +125,7 @@ body{
     color: rgb(138, 40, 40);
 }
 #hero button {
-    background-image: url("imgweb/button.png");
+    background-image: url("imgweb/logo/button.png");
     background-color: transparent;
     color: rgb(138, 40, 40);
     border: 0;
@@ -134,6 +134,68 @@ body{
     cursor: pointer;
     font-weight: 700;
     font-size: 15px;
+}
+#page-header {
+    background-image: url("imgweb/Banner/b7.jpg");
+    width: 100%;
+    height: 30vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+
+}
+#page-header h2,
+#page-header p{
+    color: white;
+}
+#newsletter{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: url("imgweb/Banner/b11.jpg");
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+    background-color: #041e42;
+}
+#newsletter h4{
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+#newsletter p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #818ea0;
+}
+#newsletter p span{
+
+    color: #ffbd27;
+}
+#newsletter .form{
+    display: flex;
+    width: 40%;
+}
+#newsletter input{
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius:0 ;
+}
+#newsletter button{
+    background-color: #ffbd27;
+    color: white;
+    white-space: nowrap;
+    border-top-left-radius: 0;
+    border-bottom-left-radius:0 ;
 }
 footer{
     display: flex;
