@@ -350,4 +350,51 @@ footer a:hover{
 #prodetails .single-pro-details span{
     line-height: 25px;
 }
+#blog{
+    padding: 100px 100px 0 100px;
+}
+#blog .blog-img img{
+    width: 400px;
+    height: 300px;
+    margin-right: 40px;   
+}
+#blog .blog-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 90px;
+}
+#blog .blog-details a{
+    text-decoration: none;
+    font-size: 11px;
+    color: black;
+    font-weight: 700;
+    position: relative;
+}
+#blog .blog-details a::after{
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    top: 4px;
+    right: -60px;
+}
+#blog .blog-details a:hover{
+    color: rgb(138, 40, 40);
+    transition: 0.3s;
+}
+#blog .blog-details a:hover::after{
+    background-color: rgb(138, 40, 40);
+}
+#blog .blog-box h1{
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-size: 70px;
+    font-weight: 700;
+    color: #c9cbce;
+    z-index: -9;
+}
 
