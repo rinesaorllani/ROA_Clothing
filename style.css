@@ -105,6 +105,10 @@ body{
     bottom: -4px;
     left: 20px;
 }
+#mobile {
+    display: none;
+    align-items: center;
+}
 #hero{
     background-image: url("imgweb/Screenshot 2024-11-12 222452.png");
     height: 90vh;
