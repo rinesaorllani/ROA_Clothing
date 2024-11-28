@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+    <link rel="stylesheet" href="/styleA.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-login">
+        <div class="login" id="logIn">
+            <div>
+                <div class="div-logins">
+                    <button id="log" onclick="logIn()">LogIn</button>
+                    <button onclick="signUp()">SignUp</button>
+                </div>
+                <form method="post" class="login-form" action="">
+                    <input type="email" required placeholder="Email" name="email" id="email">
+                    <input type="password" required placeholder="Password" name="Password" id="login-password">
+                    <label for="">Don't want to log in ?</label><a class="homepage" href="/home.html">You can go to our homepage</a>
+                    <button>Submit</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+    <div class="background-login">
+        <div class="login" id="signUp">
+            <div>
+                <div class="div-logins">
+                    <button onclick="logIn()">LogIn</button>
+                    <button id="sign" onclick="signUp()">SignUp</button>
+                </div>
+                <form method="post" class="login-form" id="login-form" action="">
+                    <input type="text" required placeholder="First Name" name="first-name" id="first-name">
+                    <input type="text" required placeholder="Last Name" name="last-name" id="last-name">
+                    <input type="email" required placeholder="Email" name="email" id="email">
+                    <input type="password" required placeholder="Password" name="Password" id="password">
+                    <span style="width: 100%;">Birthday :</span>
+                    <input style="width: 82%;" required type="date" name="birthday" id="birthday">
+                    <label for="">Don't want to create account ?</label><a class="homepage" href="/home.html">You can go to our homepage</a>
+                    <button type="submit">Submit</button>
+                </form> 
+            </div> 
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
