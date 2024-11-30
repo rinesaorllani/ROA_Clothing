@@ -354,6 +354,11 @@ body{
     padding: 0 80px;
 }
 
+#mobile{
+    display: none;
+    align-items: center;
+}
+
 #banner3 h2{
     color: #fff;
     font-weight: 900;
@@ -864,6 +869,17 @@ footer .copyright{
 @media (max-width:799px) {
     .section-p1{
         padding: 40px 40px;
+    }
+
+    
+ #mobile{
+        display: flex;
+        align-items: center;
+    }
+    #mobile i{
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
     }
     #navbar{
         display: flex;
