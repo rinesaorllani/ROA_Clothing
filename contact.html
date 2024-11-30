@@ -67,39 +67,37 @@
     </div>
 
     <div id="form-details">
-        <form action="">
-            <h2>We love to hear from you!</h2>
-            <input type="text" placeholder="Your Name" name="" id="">
-            <input type="text" placeholder="E-mail" name="" id="">
-            <input type="text" placeholder="Subject" name="" id="">
-            <textarea name="" cols="30" rows="10" placeholder="Your Message" id=""></textarea>
-            <button class="normal">Submit</button>
-        </form>
-        <div class="people">
-            <div>
-                <img src="/imgweb/people/1.png" alt="">
-                <p><span>Name Surname</span>Senior Developer <br>
-                Phone : 0033445544 <br>
-                Email : contact@gmail.com
-                </p>
-            </div>
-            <div>
-                <img src="/imgweb/people/2.png" alt="">
-                <p><span>Name Surname</span>Senior Developer <br>
-                Phone : 0033445544 <br>
-                Email : contact@gmail.com
-                </p>
-            </div>
-            <div>
-                <img src="/imgweb/people/3.png" alt="">
-                <p><span>Name Surname</span>Senior Developer <br>
-                Phone : 0033445544 <br>
-                Email : contact@gmail.com
-                </p>
-            </div>
-
+      <form id="contactForm">
+        <h2>We love to hear from you!</h2>
+        <input type="text" placeholder="Your Name" id="name">
+        <input type="email" placeholder="E-mail" id="email">
+        <input type="text" placeholder="Subject" id="subject">
+        <textarea id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <button type="submit" class="normal">Submit</button>
+      </form>
+      <div class="people">
+          <div>
+              <img src="/imgweb/people/1.png" alt="">
+              <p><span>Name Surname</span>Senior Developer <br>
+              Phone : 0033445544 <br>
+              Email : contact@gmail.com
+              </p>
+          </div>
+          <div>
+              <img src="/imgweb/people/2.png" alt="">
+              <p><span>Name Surname</span>Senior Developer <br>
+              Phone : 0033445544 <br>
+              Email : contact@gmail.com
+              </p>
+          </div>
+          <div>
+              <img src="/imgweb/people/3.png" alt="">
+              <p><span>Name Surname</span>Senior Developer <br>
+              Phone : 0033445544 <br>
+              Email : contact@gmail.com
+              </p>
         </div>
-
+      </div>
     </div>
 
     <div id="newsletter" class="section-p1 section-m1">
@@ -131,19 +129,19 @@
           </div>
         </div>
         <div class="col">
-          <a href="/about.html">About us</a>
+          <a href="#">About us</a>
           <a href="#">Delivery Information</a>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms & Conditions</a>
-          <a href="/contact.html">Contact Us</a>
+          <a href="#">Contact Us</a>
         </div>
         <div class="col">
           <h4>My Account</h4>
-          <a href="/login.html">Sign In</a>
-          <a href="/cart.html">View Cart</a>
+          <a href="#">Sign In</a>
+          <a href="#">View Cart</a>
           <a href="#">My Wishlist</a>
           <a href="#">Track My Order</a>
-          <a href="/contact.html">Help</a>
+          <a href="#">Help</a>
         </div>
         <div class="col install">
           <h4>Install Apps</h4>
@@ -157,10 +155,48 @@
         </div>
         
         <div class="copyright">
-          <p>HTML CSS JS</p>
+          <p>2024 ,Tech etc - HTML CSS JS</p>
         </div>
 
     </footer>
-    <script src="/script.js"></script>
+
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const subject = document.getElementById("subject").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          let errorMessage = "";
+
+          if (name === "") {
+              errorMessage += "Name is required.\n";
+          }
+
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (email === "") {
+              errorMessage += "Email is required.\n";
+          } else if (!emailPattern.test(email)) {
+              errorMessage += "Enter a valid email address.\n";
+          }
+
+          if (subject === "") {
+              errorMessage += "Subject is required.\n";
+          }
+
+          if (message === "") {
+              errorMessage += "Message is required.\n";
+          }
+
+          if (errorMessage) {
+              alert(errorMessage);
+          } else {
+              alert("Form submitted successfully!");
+              document.getElementById("contactForm").reset();
+          }
+      });
+  </script>
 </body>
 </html>
