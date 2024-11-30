@@ -424,7 +424,7 @@ footer .copyright{
         font-size: 24px;
         padding-left: 20px;
             }
-#navbar{
+    #navbar{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -445,7 +445,7 @@ footer .copyright{
     #navbar.active{
         right: 0;
     }
- #close{
+    #close{
         display: initial;
         position: absolute;
         top: 30px;
@@ -455,6 +455,14 @@ footer .copyright{
     }
     #lg-bag{
         display: none;
+    }
+    #blog .blog-box{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #product1 .pro-container{
+        justify-content: center;
     }
 }
 
@@ -527,22 +535,18 @@ footer .copyright{
     }
 
 
-#blog{
-padding: 100px 20px 0 20px;
+    #blog{
+    padding: 100px 20px 0 20px;
 
-}
-#blog .blog-box{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-#blog .blog-img{
-    width: 100%;
-    margin-right: 0px;
-    margin-bottom: 30px;
-}
-#blog .blog-details{
-    width: 100%;
-}
+    }
+   
+    #blog .blog-img{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 30px;
+    }
+    #blog .blog-details{
+        width: 100%;
+    }
 }
 
