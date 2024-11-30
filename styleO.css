@@ -104,7 +104,7 @@ body{
 
 #navbar li a:hover,
 #navbar li a.active{
-    color: rgb(7, 156, 7);
+    color: rgb(138, 40, 40);
 }
 
 #navbar li a.active::after,
@@ -112,7 +112,7 @@ body{
     content: "";
     width: 30%;
     height: 2px;
-    background: rgb(7, 156, 7);
+    background: rgb(138, 40, 40);
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -141,13 +141,13 @@ body{
 }
 
 #hero h1{
-    color: #088178;
+    color: rgb(138, 40, 40)
 }
 
 #hero button{
     background-image: url("/imgweb/button.png");
     background-color: transparent;
-    color: #088178;
+    color: rgb(138, 40, 40);
     border: 0;
     padding: 14px 80px 14px 65px;
     background-repeat: no-repeat;
@@ -244,7 +244,7 @@ body{
 
 #product1 .des h4{
     padding-top: 7px;
-    color: #088178;
+    color: rgb(138, 40, 40);
     font-size: 15px;
     font-weight: 700;
 }
@@ -262,7 +262,7 @@ body{
     line-height: 40px;
     border-radius: 50px;
     background-color: #e8f6ea;
-    color: #088178; 
+    color: rgb(138, 40, 40); 
     border: 1px solid #cce7d0;
     position: absolute;
     bottom: 20px;
@@ -296,7 +296,7 @@ body{
     color: #ef3636;
 }
 #banner button:hover{
-    background-color: #088178;
+    background-color: rgb(138, 40, 40);
     color: #fff;
 }
 
@@ -393,7 +393,7 @@ body{
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-image: url("imgweb/banner/b14.png");
+    background-image: url("imgweb/Banner/b11.jpg");
     background-repeat: no-repeat;
     background-position: 20% 30%;
     background-color: #041e42;
@@ -435,7 +435,7 @@ body{
 }
 
 #page-header{
-    background-image: url("/imgweb/banner/b1.jpg");
+    background-image: url("/imgweb/banner/b11.jpg");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -455,7 +455,7 @@ body{
     display: none;
 }
 #newsletter button{
-    background-color: #088178;
+    background-color: #ffbd27;
     color: #fff;
     white-space: nowrap;
     border-top-left-radius: 0;
@@ -601,7 +601,7 @@ footer .copyright{
 }
 
 #form-details form button{
-    background-color: #088178;
+    background-color: url(imgweb/banner/b7.jpg);
     color: #fff;
 }
 
@@ -711,7 +711,7 @@ footer .copyright{
 }
 
 #page-header .about-header{
-    background-image: url("/imgweb/about/banner.png");
+    background-image: url("imgweb/Banner/b11.jpg");
 }
 
 #about-head{
@@ -833,7 +833,7 @@ footer .copyright{
 
 #coupon button,
 #subtotal button{
-    background-color: #088178;
+    background-color: rgb(138, 40, 40);
     color: #fff;
     padding: 12px 20px;
 }

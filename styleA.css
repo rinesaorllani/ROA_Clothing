@@ -53,11 +53,11 @@ button.normal{
     transition: 0.2s;
 }
 
-button.white{
+button.red{
     font-size: 13px;
     font-weight: 600;
     padding: 11px 18px;
-    color: #fff;
+    color: black;
     background-color: transparent;
     border-radius: 4px;
     cursor: pointer;
@@ -104,7 +104,7 @@ body{
 
 #navbar li a:hover,
 #navbar li a.active{
-    color: rgb(7, 156, 7);
+    color: rgb(138, 40, 40);
 }
 
 #navbar li a.active::after,
@@ -112,7 +112,7 @@ body{
     content: "";
     width: 30%;
     height: 2px;
-    background: rgb(7, 156, 7);
+    background: rgb(138, 40, 40);
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -125,7 +125,7 @@ body{
 
 #hero{
     width: 100%;
-    background-image: url("/imgweb/hero4.png");
+    background-image: url("/imgweb/logo/Backround.png");
     background-size: cover;
     height: 90vh;
     background-position: top 25% right 0;
@@ -141,13 +141,13 @@ body{
 }
 
 #hero h1{
-    color: #088178;
+    color: rgb(138, 40, 40);
 }
 
 #hero button{
     background-image: url("/imgweb/button.png");
     background-color: transparent;
-    color: #088178;
+    color: rgb(138, 40, 40);
     border: 0;
     padding: 14px 80px 14px 65px;
     background-repeat: no-repeat;
@@ -160,6 +160,7 @@ body{
     width: 180px;
     text-align: center;
     padding: 25px 15px;
+    color:rgb(138, 40, 40);
     box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
     border: 1px solid #cce7d0;
     border-radius: 4px;
@@ -180,7 +181,7 @@ body{
     padding: 9px 8px 6px 8px;
     line-height: 1;
     border-radius: 4px;
-    color: #088178;
+    color: rgb(138, 40, 40);
     background-color: #fddde4;
 }
 
@@ -246,7 +247,7 @@ body{
 
 #product1 .des h4{
     padding-top: 7px;
-    color: #088178;
+    color: black;
     font-size: 15px;
     font-weight: 700;
 }
@@ -263,9 +264,9 @@ body{
     height: 40px;
     line-height: 40px;
     border-radius: 50px;
-    background-color: #e8f6ea;
-    color: #088178; 
-    border: 1px solid #cce7d0;
+   
+    color: rgb(138, 40, 40); 
+    border: 1px solid rgb(138, 40, 40);
     position: absolute;
     bottom: 20px;
     right: 10px;
@@ -276,7 +277,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background:url("imgweb/banner/b2.jpg");
+    background:url("imgweb/banner/bb.webp");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -295,10 +296,10 @@ body{
 }
 
 #banner h2 span{
-    color: #ef3636;
+    color: rgb(138, 40, 40) ;
 }
 #banner button:hover{
-    background-color: #088178;
+    background-color: rgb(138, 40, 40);
     color: #fff;
 }
 
@@ -313,8 +314,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background:url("imgweb/banner/b17.jpg");
-    width: 580px;
+    background:url("imgweb/banner/b22.jpg");
+    width: 670px;
     height: 50vh;
     background-size: cover;
     background-position: center;
@@ -341,12 +342,12 @@ body{
 }
 
 #sm-banner .banner-box:hover button{
-    background-color: #088178;
-    border:solid 1px #088178;
+    background-color: rgb(138, 40, 40);
+    border:solid 1px rgb(138, 40, 40);
 }
 
 #sm-banner .banner-box2{
-    background: url("/imgweb/banner/b10.jpg");
+    background: url("imgweb/banner/b23.jpg");
 }
 
 #banner3{
@@ -373,7 +374,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-image:url("imgweb/banner/b7.jpg");
+    background-image:url("imgweb/banner/b24.jpg");
     min-width: 30%;
     height: 30vh;
     background-size: cover;
@@ -383,11 +384,11 @@ body{
 }
 
 #banner3 .banner-box2{
-    background-image: url("imgweb/banner/b4.jpg");
+    background-image: url("imgweb/banner/b25.jpg");
 }
 
 #banner3 .banner-box3{
-    background-image: url("imgweb/banner/b18.jpg");
+    background-image: url("imgweb/banner/b12.jpg");
 }
 
 #newsletter{
@@ -395,7 +396,7 @@ body{
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-image: url("imgweb/banner/b14.png");
+    background-image: url("imgweb/banner/b11.jpg");
     background-repeat: no-repeat;
     background-position: 20% 30%;
     background-color: #041e42;
@@ -437,7 +438,7 @@ body{
 }
 
 #page-header{
-    background-image: url("/imgweb/banner/b1.jpg");
+    background-image: url("/imgweb/banner/b7.jpg");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -457,7 +458,7 @@ body{
     display: none;
 }
 #newsletter button{
-    background-color: #088178;
+    background-color: #ffbd27;
     color: #fff;
     white-space: nowrap;
     border-top-left-radius: 0;
@@ -507,7 +508,7 @@ footer .follow i{
     height: 100vh;
 }
 footer .install .row img{
-    border: 1px solid #088178;
+    border: 1px solid rgb(138, 40, 40);
     border-radius: 6px;
 }
 
@@ -516,7 +517,7 @@ footer .install img{
 }
 footer .follow i:hover,
 footer a:hover{
-    color: #088178;
+    color: rgb(138, 40, 40);
 }
 
 footer .copyright{
@@ -601,7 +602,7 @@ footer .copyright{
 }
 
 #form-details form button{
-    background-color: #088178;
+    background-color: rgb(138, 40, 40);
     color: #fff;
 }
 

@@ -295,6 +295,10 @@ footer .install img{
 footer a:hover{
     color: rgb(138, 40, 40);
 }
+footer .copyright{
+    width: 100%;
+    text-align: center;
+}
 #pagination{
     text-align: center;
 }
