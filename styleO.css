@@ -870,8 +870,7 @@ footer .copyright{
     .section-p1{
         padding: 40px 40px;
     }
-    799
-#navbar{
+    #navbar{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -892,7 +891,7 @@ footer .copyright{
     #navbar.active{
         right: 0;
     }
- #close{
+    #close{
         display: initial;
         position: absolute;
         top: 30px;
@@ -903,9 +902,7 @@ footer .copyright{
     #lg-bag{
         display: none;
     }
-
-    
- #mobile{
+    #mobile{
         display: flex;
         align-items: center;
     }
