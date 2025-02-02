@@ -1,3 +1,68 @@
+<?php
+session_start();
+if (!isset($_SESSION["userId"])) {
+    header("Location: login.php");
+    die();
+}
+
+// Email processing
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Path to PHPMailer autoload
+
+$emailSent = false;
+$error = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_contact"])) {
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
+    $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
+
+    // Validate inputs
+    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+        $error = "All fields are required.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Invalid email format.";
+    } else {
+        try {
+            $mail = new PHPMailer(true);
+            
+            // SMTP Configuration for Gmail
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'auronismajli2001@gmail.com'; // Your Gmail
+            $mail->Password = 'ucef priu ealt xevc'; // Google App Password
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            // Recipients
+            $mail->setFrom('your@gmail.com', 'ROA Clothing'); // Same as username
+            $mail->addAddress('ismajliart0@gmail.com'); // Where to receive emails
+            $mail->addReplyTo($email, $name);
+
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = "Contact Form: $subject";
+            $mail->Body = "
+                <h2>New Contact Form Submission</h2>
+                <p><strong>Name:</strong> $name</p>
+                <p><strong>Email:</strong> $email</p>
+                <p><strong>Subject:</strong> $subject</p>
+                <p><strong>Message:</strong></p>
+                <p>$message</p>
+            ";
+
+            $mail->send();
+            $emailSent = true;
+        } catch (Exception $e) {
+            $error = "Message could not be sent. Error: {$mail->ErrorInfo}";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +73,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <?php if ($emailSent): ?>
+        <div class="alert success">Message sent successfully!</div>
+    <?php elseif (!empty($error)): ?>
+        <div class="alert error"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
     <div id="header">
-        <a href="/home.html" class="navbar-logo"><img src="/imgweb/logo.png" style="width: 75px;" class="logo" alt="Logo"></a>
+        <a href="/home.php" class="navbar-logo"><img src="/imgweb/logo.png" style="width: 75px;" class="logo" alt="Logo"></a>
         <div>
           <ul id="navbar">
-            <li><a href="/home.html">Home</a></li>
-            <li><a href="/shop.html">Shop</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a class="active" href="/contact.html">Contact</a></li>
-            <li><a href="/login.html">Login</a></li>
-            <li><a id="lg-bag" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a href="/home.php">Home</a></li>
+            <li><a href="/shop.php">Shop</a></li>
+            <li><a href="/about.php">About</a></li>
+            <li><a href="/blog.php">Blog</a></li>
+            <li><a class="active" href="/contact.php">Contact</a></li>
+            <li><a href="/upload.php">Upload</a></li>
+            <li><form method="post" action="logout.php">
+              <input class="logoutt" style="background-color:transparent;border: none;font-weight: 600;font-family: 'Times New Roman', Times, serif;font-size: 16px;" type="submit" id="signOut" value="SignOut">
+            </form>
+            </li>
+            <li><a id="lg-bag" href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
         <a id="close"><i class="fa-solid fa-x"></i></a>
           </ul>
         </div>
@@ -67,13 +141,13 @@
     </div>
 
     <div id="form-details">
-      <form id="contactForm">
+    <form method="POST" action="contact.php">
         <h2>We love to hear from you!</h2>
-        <input type="text" placeholder="Your Name" id="name">
-        <input type="email" placeholder="E-mail" id="email">
-        <input type="text" placeholder="Subject" id="subject">
-        <textarea id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
-        <button type="submit" class="normal">Submit</button>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <button type="submit" name="submit_contact" class="normal">Submit</button>
       </form>
       <div class="people">
           <div>
