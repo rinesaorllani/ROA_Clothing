@@ -76,6 +76,20 @@ body{
 #close{
     display: none;
 }
+.logoutt:hover{
+    cursor: pointer;
+    color: rgb(138, 40, 40);
+}
+.logoutt:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: rgb(138, 40, 40);
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
 #navbar{
     display: flex;
     align-items: center;
@@ -207,7 +221,23 @@ body{
     padding-top: 7px;
     font-size: 15px;
     font-weight: 700;
-   
+    
+}
+
+
+.description-box {
+    width: 100%; /* Takes full width of its container */
+    max-height: 150px; /* Set a max height for the box */
+    overflow-y: auto; /* Adds a vertical scrollbar if content overflows */
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional: Add a border */
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px; /* Space above the description */
+}
+
+.description-box span {
+    display: block; /* Ensures the span behaves like a block element */
 }
 #product1 .pro .cart{
  
@@ -326,6 +356,12 @@ footer .copyright{
     margin-right: 50px;
     
 
+}
+
+.single-pro-details {
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
 }
 
 .small-img-group{
@@ -533,6 +569,7 @@ footer .copyright{
     #prodetails .single-pro-details{
        width: 100%; 
     }
+
 
 
     #blog{
