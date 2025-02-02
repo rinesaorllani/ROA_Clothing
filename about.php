@@ -1,8 +1,15 @@
-
+<?php
+session_start();
+    if(!isset($_SESSION["userId"])){
+        header("Location:login.php");
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,21 +18,24 @@
 
 <body>
     <section id="header">
-      <a href="/home.html" class="navbar-logo"><img src="/imgweb/logo.png" style="width: 75px;" class="logo" alt="Logo"></a>
+      <a href="/home.php" class="navbar-logo"><img src="/imgweb/logo.png" style="width: 75px;" class="logo" alt="Logo"></a>
         <div>
             <ul id="navbar">
-                <li><a href="/home.html">Home</a></li>
-                <li><a href="/shop.html">Shop</a></li>
-                <li><a class="active" href="/about.html">About</a></li>
-                <li><a href="/blog.html">Blog</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-                <li><a href="/login.html">LogIn</a></li>
-                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/home.php">Home</a></li>
+                <li><a href="/shop.php">Shop</a></li>
+                <li><a class="active" href="/about.php">About</a></li>
+                <li><a href="/blog.php">Blog</a></li>
+                <li><a href="/contact.php">Contact</a></li>
+                <li><a href="/upload.php">Upload</a></li>
+                <li><form method="post" action="logout.php">
+                  <input class="logoutt" style="background-color:transparent;border: none;font-weight: 600;font-family: 'Times New Roman', Times, serif;font-size: 16px;" type="submit" id="signOut" value="SignOut">
+                </form></li>
+                <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
         </div>
         <div id="mobile">
           <i id="bar" class="fas fa-outdent"></i>
-          <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="/cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </section>
 
@@ -127,19 +137,19 @@
           </div>
         </div>
         <div class="col">
-          <a href="about.html">About us</a>
+          <a href="about.php">About us</a>
           <a href="#">Delivery Information</a>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms & Conditions</a>
-          <a href="contact.html">Contact Us</a>
+          <a href="contact.php">Contact Us</a>
         </div>
         <div class="col">
           <h4>My Account</h4>
-          <a href="login.html">Sign In</a>
-          <a href="cart.html">View Cart</a>
+          <a href="login.php">Sign In</a>
+          <a href="cart.php">View Cart</a>
           <a href="#">My Wishlist</a>
           <a href="#">Track My Order</a>
-          <a href="contact.html">Help</a>
+          <a href="contact.php">Help</a>
         </div>
         <div class="col install">
           <h4>Install Apps</h4>
