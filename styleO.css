@@ -5,6 +5,19 @@
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
+.logoutt:hover{
+    cursor: pointer;
+    color: rgb(138, 40, 40);
+}
+.logoutt:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: rgb(138, 40, 40);
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
 
 h1{
     font-size: 50px;
