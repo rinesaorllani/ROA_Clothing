@@ -1,3 +1,10 @@
+<?php
+session_start();
+    if(!isset($_SESSION["userId"])){
+        header("Location:login.php");
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +17,25 @@
     
 <body>
   <section id="header">
-    <a href="/home.html" class="navbar-logo"><img src="/imgweb/logo.png" class="logo" alt="Logo" style="width: 75px;"></a>
+    <a href="home.php" class="navbar-logo"><img src="/imgweb/logo.png" class="logo" alt="Logo" style="width: 75px;"></a>
     <div>
       <ul id="navbar">
-        <li><a class="active" href="/home.html">Home</a></li>
-        <li><a href="/shop.html">Shop</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/blog.html">Blog</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/login.html">Login</a></li>
-        <li><a id="lg-bag" href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        <li><a class="active" href="/home.php">Home</a></li>
+        <li><a href="/shop.php">Shop</a></li>
+        <li><a href="/about.php">About</a></li>
+        <li><a href="/blog.php">Blog</a></li>
+        <li><a href="/contact.php">Contact</a></li>
+        <li><a href="/upload.php">Upload</a></li>
+        <li><form method="post" action="logout.php">
+          <input class="logoutt" style="background-color:transparent;border: none;font-weight: 600;font-family: 'Times New Roman', Times, serif;font-size: 16px;" type="submit" id="signOut" value="SignOut">
+        </form></li>
+        <li><a id="lg-bag" href="/cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
         <a id="close"><i class="fa-solid fa-x"></i></a>
       </ul>
     </div>
     <div id="mobile">
       <i id="bar" class="fas fa-outdent"></i>
-      <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+      <a href="/cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
 </section>
     
@@ -34,7 +44,7 @@
       <h2>Super value deals </h2>
       <h1>On all products</h1>
       <p>Save more coupons & up to 70% off!</p>
-      <button>Shop Now</button>
+      <a href="/shop.php"><button>Shop Now</button></a>
   </section>
   <section id="feature" class="section-p1">
     <div class="fe-box">
@@ -67,137 +77,42 @@
     <h2>Featured Products</h2>
     <p>Summer Collection New Modern Design</p>
     <div class="pro-container">
-      <div class="pro">
-        <img src="/imgweb/Products/pr1.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>DOUBLE-FACED LONG JACKET</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/pr2.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5> SOFT BOMBER JACKET</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/pr3.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>NEOPRENE-EFFECT QUILTED JACKET</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/pr4.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>FAUX FUR JACKET</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/pr5.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>ABSTRACT PRINT SHIRT</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/pr6.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>TEXTURED STRETCH SHIRT</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/pr7.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>OBJECT PRINT SHIRT</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/pr8.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>TEXTURED CHAMBRAY SHIRT</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-    </div>
+    <?php
+        $conn = new mysqli("localhost", "root", "", "ecommerce");
+        if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
+        // Featured Products
+        $query = "SELECT p.*, i.image_url 
+                FROM products p
+                INNER JOIN images i ON p.image_id = i.id
+                ORDER BY RAND() LIMIT 8";
+        $result = $conn->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '
+                <div class="pro">
+                    <a style="text-decoration:none;" href="s-prooducts.php?id=' . htmlspecialchars($row['id']) . '">
+                        <img src="' . htmlspecialchars($row['image_url']) . '" alt="' . htmlspecialchars($row['name_of_product']) . '">
+                        <div class="des">
+                            <span>ROA</span>
+                            <h5>' . htmlspecialchars($row['name_of_product']) . '</h5>
+                            <h4>$' . number_format($row['price'], 2) . '</h4>
+                        </div>
+                    </a>
+                    <form method="post" action="add_to_carthome.php">
+                        <input type="hidden" name="product_id" value="' . htmlspecialchars($row['id']) . '">
+                        <button type="submit" class="cart-button"><i class="fas fa-cart-plus cart"></i></button>
+                    </form>
+                </div>';
+            }
+        } else {
+            echo '<p>No products found</p>';
+        }
+        ?>
+    </div>
   </section>
+
   <section id="banner" class="section-m1">
     <h4> Repair Services </h4>
     <h2>Up to <span>70% Off</span> - All t-Shirts & Accessories</h2>
@@ -205,136 +120,48 @@
   </section>
   <section id="product1" class="section-p1">
     <h2>New Arrivals</h2>
-    <p>Summer Collection New Modern Design</p>
+    <p>Latest products added in the last 24 hours</p>
     <div class="pro-container">
-      <div class="pro">
-        <img src="/imgweb/Products/d1.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>BELTED BOX PLEAT DRESS</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/d2.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>CROPPED BLAZER WITH SATIN BOW</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/d3.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>JEWELLED ALPACA KNIT SWEATER</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/d4.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>ZW COLLECTION PUFF SLEEVE BLOUSE</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/d5.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>COAT WITH CONTRAST COLLAR</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/d6.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>FADED PRINT HOODIE</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/d7.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>T-SHIRT WITH CONTRAST PATCH</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
-      <div class="pro">
-        <img src="/imgweb/Products/d8.jpg" alt="">
-        <div class="des">
-          <span>ROA</span>
-          <h5>RUBBERISED PUFFER GILET</h5>
-          <div class="star">
-            <i class="fas fa-star" style="color:goldenrod"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-            <i class="fas fa-star" style="color: goldenrod;"></i>
-          </div>
-          <h4>70$</h4>
-        </div>
-        <a href="#"><i class="fas fa-cart-plus cart"></i></a>
-      </div>
+    <?php
+        // New Arrivals (last 24 hours)
+        $newArrivalsQuery = "SELECT p.*, i.image_url 
+                           FROM products p
+                           INNER JOIN images i ON p.image_id = i.id
+                           WHERE p.created_at >= DATE_SUB(NOW(), INTERVAL 1 DAY)
+                           ORDER BY p.created_at DESC
+                           LIMIT 8";
+        $newArrivalsResult = $conn->query($newArrivalsQuery);
+
+        if ($newArrivalsResult && $newArrivalsResult->num_rows > 0) {
+            while ($newProduct = $newArrivalsResult->fetch_assoc()) {
+                echo '
+                <div class="pro">
+                    <a style="text-decoration:none;" href="s-prooducts.php?id=' . htmlspecialchars($newProduct['id']) . '">
+                        <img src="' . htmlspecialchars($newProduct['image_url']) . '" alt="' . htmlspecialchars($newProduct['name_of_product']) . '">
+                        <div class="des">
+                            <span>ROA</span>
+                            <h5>' . htmlspecialchars($newProduct['name_of_product']) . '</h5>
+                            <div class="star">
+                                <i class="fas fa-star" style="color:goldenrod"></i>
+                                <i class="fas fa-star" style="color:goldenrod"></i>
+                                <i class="fas fa-star" style="color:goldenrod"></i>
+                                <i class="fas fa-star" style="color:goldenrod"></i>
+                                <i class="fas fa-star" style="color:goldenrod"></i>
+                            </div>
+                            <h4>$' . number_format($newProduct['price'], 2) . '</h4>
+                        </div>
+                    </a>
+                    <form method="post" action="add_to_carthome.php">
+                        <input type="hidden" name="product_id" value="' . htmlspecialchars($newProduct['id']) . '">
+                        <button type="submit" class="cart-button"><i class="fas fa-cart-plus cart"></i></button>
+                    </form>
+                </div>';
+            }
+        } else {
+            echo '<p>No new arrivals in the last 24 hours</p>';
+        }
+        $conn->close();
+        ?>
     </div>
   </section>
   <section id="sm-banner" class="section-p1">
@@ -394,19 +221,19 @@
       </div>
     </div>
     <div class="col">
-      <a href="/about.html">About us</a>
+      <a href="/about.php">About us</a>
       <a href="#">Delivery Information</a>
       <a href="#">Privacy Policy</a>
       <a href="#">Terms & Conditions</a>
-      <a href="/contact.html">Contact Us</a>
+      <a href="/contact.php">Contact Us</a>
     </div>
     <div class="col">
       <h4>My Account</h4>
-      <a href="/login.html">Sign In</a>
-      <a href="/cart.html">View Cart</a>
+      <a href="/login.php">Sign In</a>
+      <a href="/cart.php">View Cart</a>
       <a href="#">My Wishlist</a>
       <a href="#">Track My Order</a>
-      <a href="/contact.html">Help</a>
+      <a href="/contact.php">Help</a>
     </div>
     <div class="col install">
       <h4>Install Apps</h4>
