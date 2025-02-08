@@ -20,7 +20,6 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     // Create database connection
     $conn = new mysqli($servername, $username, $password, $dbName);
     if ($conn->connect_error) {
-        // Database connection error
         $_SESSION["error"] = "Could not connect to the database!";
         header("Location: login.php");
         die();
@@ -29,21 +28,29 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Fetch user by email and password
-    $findUser = $conn->prepare("SELECT * FROM `users` WHERE `email` = ? AND `password` = ?");
-    $findUser->bind_param("ss", $email, $password);
+    // Fetch user by email
+    $findUser = $conn->prepare("SELECT * FROM `users` WHERE `email` = ?");
+    $findUser->bind_param("s", $email);
     $findUser->execute();
     $userResult = $findUser->get_result();
 
     if ($userResult->num_rows == 0) {
-        // Wrong credentials
+        $_SESSION["error"] = "Incorrect email or password. Please try again!";
+        header("Location: login.php");
+        die();
+    }
+
+    // Get user data
+    $user = $userResult->fetch_assoc();
+    
+    // Verify password
+    if (!password_verify($password, $user["password"])) {
         $_SESSION["error"] = "Incorrect email or password. Please try again!";
         header("Location: login.php");
         die();
     }
 
     // Login successful
-    $user = $userResult->fetch_assoc();
     $_SESSION["userId"] = $user["id"];
     $_SESSION["firstName"] = $user["first_name"];
     $_SESSION["role"] = $user["role"]; 
